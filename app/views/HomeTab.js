@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity
+} from "react-native";
 import { Icon, Container, Content } from "native-base";
 import { ScrollView } from "react-native-gesture-handler";
 import FeedList from "../components/FeedList";
@@ -59,7 +65,7 @@ class HomeTab extends Component {
             height: height / 12
           }}
         >
-          <View
+          <TouchableOpacity
             name="searchBar"
             style={{
               flex: 1,
@@ -69,6 +75,9 @@ class HomeTab extends Component {
               backgroundColor: colors.searchBarContainer,
               marginEnd: 30,
               borderRadius: 5
+            }}
+            onPress={() => {
+              this.props.navigation.navigate("SearchAutocompleteScreen");
             }}
           >
             <Icon
@@ -86,7 +95,7 @@ class HomeTab extends Component {
             >
               Search for courses, educators
             </Text>
-          </View>
+          </TouchableOpacity>
 
           <Icon
             ios="ios-notifications-outline"

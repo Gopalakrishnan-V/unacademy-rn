@@ -221,7 +221,14 @@ class componentName extends Component {
             marginHorizontal: 10
           }}
         >
-          <View style={{ flex: 3, flexDirection: "row", alignItems: "center" }}>
+          <TouchableOpacity
+            style={{ flex: 3, flexDirection: "row", alignItems: "center" }}
+            onPress={() => {
+              this.props.navigation.push("UserProfileScreen", {
+                username: author.username
+              });
+            }}
+          >
             <Image
               source={{ uri: author.avatar }}
               style={{ width: 50, height: 50, borderRadius: 50 / 2 }}
@@ -240,7 +247,7 @@ class componentName extends Component {
                 {getCondensedNumber(author.followers_count) + " followers"}
               </Text>
             </View>
-          </View>
+          </TouchableOpacity>
 
           <View
             style={{
